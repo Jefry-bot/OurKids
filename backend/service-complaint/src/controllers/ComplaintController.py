@@ -1,8 +1,10 @@
 import string
 from flask import Blueprint, request
+import requests
 
 from services.ComplaintService import ComplaintService
 from ourkids.ResponseBuilder import ResponseBuilder
+from ourkids.NotAuthException import NotAuthException
 
 class ComplaintController:
     complaint_routes: Blueprint = Blueprint("complaint_routes", __name__)
@@ -11,6 +13,15 @@ class ComplaintController:
     def __init__(self) -> None:
         global service
         service = ComplaintService()
+        
+    @complaint_routes.before_request
+    def verify_token_middleware():
+        try:
+            token = request.headers['Authorization']
+            requests.get("http://localhost:4001/api/verify/token", headers={"Authorization": token}).json()
+        except KeyError:
+            raise NotAuthException("Error")
+        
         
     @complaint_routes.get(__url + "/<id>")
     def findById(id):
