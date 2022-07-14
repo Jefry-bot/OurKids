@@ -3,8 +3,8 @@ from setuptools import setup
 
 HERE = pathlib.Path(__file__).parent
 
-VERSION = '0.0.5'
-PACKAGE_NAME = 'Common-OurKids' 
+VERSION = '0.0.1'
+PACKAGE_NAME = 'ourkids-common' 
 AUTHOR = 'Jefry Zárate Ruíz' 
 AUTHOR_EMAIL = 'jefryzarateruiz@gmail.com'
 URL = 'https://github.com/Jefry-bot/Common-OurKids'
@@ -32,9 +32,7 @@ setup(
     url=URL,
     download_url=DOWNLOAD_URL,
     install_requires=INSTALL_REQUIRES,
-    keywords=['testing', 'logging', 'example'],
-    classifiers=[],
     license=LICENSE,
-    packages= ['Common-OurKids'],
+    packages= ['ourkids'],
     include_package_data=True
 )
