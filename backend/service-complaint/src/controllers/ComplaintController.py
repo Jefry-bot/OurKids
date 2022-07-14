@@ -18,7 +18,9 @@ class ComplaintController:
     def verify_token_middleware():
         try:
             token = request.headers['Authorization']
-            requests.get("http://localhost:4001/api/verify/token", headers={"Authorization": token}).json()
+            data = requests.get("http://localhost:4001/api/verify/token", headers={"Authorization": token}).json()['exp']
+            if data == None:
+                NotAuthException("Error")
         except KeyError:
             raise NotAuthException("Error")
         

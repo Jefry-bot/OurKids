@@ -14,4 +14,4 @@ cors = CORS(app, resources={r"/api/*": {"origins": {"http://localhost:3000"}}})
 if __name__ == '__main__':
     config(app, CONTROLLERS)
     
-    app.run(debug=True, port=4001)
+    app.run(port=4001)
