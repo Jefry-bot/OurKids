@@ -1,0 +1,2 @@
+ourkids-common>=0.0.3
+Flask-Cors>=3.0.10

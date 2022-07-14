@@ -1,0 +1,96 @@
+
+body {
+  padding: 0;
+  margin: 0;
+  font-family: "Times New Roman", Times, serif;
+  color: white;
+}
+
+#root {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #0093e9;
+  background-image: url("../images/2843425.jpg");
+  background-size: cover;
+  background-blend-mode: screen;
+}
+
+.container {
+  width: 25rem;
+  height: 25rem;
+  background-color: white;
+  border-radius: 30px;
+}
+
+.input_form {
+    border: 0;
+    border-bottom: 1px solid #CBC6C5;
+    width: 60%;
+    padding-top: 10px;
+    font-size: 17px;
+    outline: 0;
+    transition: border 1.5s;
+}
+
+
+.input_form:focus {
+    border-color: #0093e9;
+}
+
+.span_input {
+    color: #8E8E8E;
+    display: inline-block;
+    position: absolute;
+    pointer-events: none;
+    right: 63%;
+    top: 42%;
+    transition: all .5s;
+}
+
+
+.container-input {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+
+.grid {
+    display: grid;
+}
+
+.grid-cols-1 {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+}
+
+.grid-rows-3 {
+    grid-template-rows: 20% repeat(3, minmax(0, 1fr));
+}
+
+.gap {
+    gap: 1rem;
+}
+
+.input_form:focus ~ .span_input,
+.input_form:not(:placeholder-shown) + .span_input{
+    transform: translateY(-20px) translateX(-15px) scale(.7);
+    color: #0093e9;
+}
+
+.submit {
+    width: 70%;
+    height: 30%;
+    transform: translateY(-20px);
+    border: 0;
+    background-color: #67c5fb;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: bold;
+    color: wheat;
+}
