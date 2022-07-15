@@ -5,13 +5,19 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="../static/css/styles.css" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='./css/styles.css') }}" />
   </head>
   <body>
     <div id="root">
       <form>
         <div class="container grid grid-cols-1 grid-rows-3">
-          <div></div>
+          <div>
+            <ul>
+            {% for row in complaints -%}
+              <li style="background-color: black; display: inline-block;">{{row['description']}}</li>
+            {% endfor -%}
+            </ul>
+          </div>
           <div class="container-input">
             <input
               type="text"
