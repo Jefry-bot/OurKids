@@ -9,7 +9,6 @@ from screens.main_controller import Main
 
 from os import system
 
-
 if __name__ == '__main__':
     app = QApplication()
     

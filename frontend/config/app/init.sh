@@ -2,8 +2,7 @@
 
 ACTUAL=$(pwd)
 
-sudo kill -9 `sudo lsof -t -i:4000`
-sudo kill -9 `sudo lsof -t -i:4001`
+sudo kill -9 `sudo lsof -t -i:3000`
 
 clear
 
@@ -22,5 +21,5 @@ fi
 ACTIVATE=env/bin/activate
 ROUTE_SERVICE=$ROUTE/../../service
 
-. $ROUTE/complaint.sh $ACTIVATE $ROUTE_SERVICE &
-. $ROUTE/security.sh $ACTIVATE $ROUTE_SERVICE
+. $ROUTE/application.sh $ACTIVATE $ROUTE_SERVICE &
+. $ROUTE/show-view.sh $ACTIVATE $ROUTE_SERVICE &

@@ -19,12 +19,12 @@ fi
 
 ACTIVATE=env/bin/activate
 
-$PYTHON3 -m venv $ROUTE-complaint/env
-source $ROUTE-complaint/$ACTIVATE
-pip install -r $ROUTE-complaint/requirements.txt
+$PYTHON3 -m venv $ROUTE-show-view/env
+source $ROUTE-show-view/$ACTIVATE
+pip install -r $ROUTE-show-view/requirements.txt
 deactivate
 
-$PYTHON3 -m venv $ROUTE-security/env
-source $ROUTE-security/$ACTIVATE
-pip install -r $ROUTE-security/requirements.txt
+$PYTHON3 -m venv $ROUTE-application/env
+source $ROUTE-application/$ACTIVATE
+pip install -r $ROUTE-application/requirements.txt
 deactivate

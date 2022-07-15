@@ -1,5 +1,5 @@
 #!/bin/bash
 
-source $3-complaint/$1
-$2 $3-complaint/src/index.py
+source $2-complaint/$1
+python3 $2-complaint/src/index.py
 deactivate

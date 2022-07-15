@@ -1,5 +1,5 @@
 #!/bin/bash
 
-source $3-security/$1
-$2 $3-security/src/index.py
+source $2-security/$1
+python3 $2-security/src/index.py
 deactivate
