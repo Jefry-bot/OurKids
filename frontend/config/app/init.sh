@@ -21,5 +21,5 @@ fi
 ACTIVATE=env/bin/activate
 ROUTE_SERVICE=$ROUTE/../../service
 
-. $ROUTE/application.sh $ACTIVATE $ROUTE_SERVICE &
 . $ROUTE/show-view.sh $ACTIVATE $ROUTE_SERVICE &
+. $ROUTE/application.sh $ACTIVATE $ROUTE_SERVICE
