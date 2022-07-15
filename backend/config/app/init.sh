@@ -25,5 +25,4 @@ fi
 ACTIVATE=env/bin/activate
 ROUTE_SERVICE=$ROUTE/../../service
 
-. $ROUTE/complaint.sh $ACTIVATE $PYTHON3 $ROUTE_SERVICE & 
-. $ROUTE/security.sh $ACTIVATE $PYTHON3 $ROUTE_SERVICE
+. $ROUTE/application.sh $ACTIVATE $PYTHON3 $ROUTE_SERVICE

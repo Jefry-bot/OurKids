@@ -8,6 +8,7 @@
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
 
+from os.path import dirname
 from PySide6.QtCore import (QCoreApplication, QMetaObject, QUrl)
 from PySide6.QtWebEngineWidgets import QWebEngineView
 from PySide6.QtWidgets import QVBoxLayout
@@ -23,7 +24,7 @@ class Ui_Form(object):
         self.verticalLayout.setContentsMargins(0, 0, 0, 0)
         self.webEngineView = QWebEngineView(Form)
         self.webEngineView.setObjectName(u"webEngineView")
-        self.webEngineView.setUrl("http://localhost:3000")
+        self.webEngineView.setUrl(dirname(__file__) + "../resourses/templates/index.html")
 
         self.verticalLayout.addWidget(self.webEngineView) 
 
