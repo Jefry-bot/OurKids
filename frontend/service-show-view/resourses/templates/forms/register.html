@@ -1,0 +1,10 @@
+{% extends "layouts/layout.html" %}
+{% from 'components/person.html' import Person with context %}
+
+{% block body %}
+    <div style="margin: 20px; background-color: blue; width: 50vw; height: 50vh;">
+        {% for person in persons -%}
+            {{ Person(person['name'], person['lastname']) }}
+        {% endfor -%}   
+    </div>
+{% endblock %}

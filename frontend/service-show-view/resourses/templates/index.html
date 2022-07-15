@@ -1,46 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='./css/styles.css') }}" />
-  </head>
-  <body>
-    <div id="root">
-      <form>
-        <div class="container grid grid-cols-1 grid-rows-3">
-          <div>
-            <ul>
-            {% for row in complaints -%}
-              <li style="background-color: black; display: inline-block;">{{row['description']}}</li>
-            {% endfor -%}
-            </ul>
-          </div>
-          <div class="container-input">
-            <input
-              type="text"
-              class="input_form"
-              id="username"
-              placeholder="  "
-            />
-            <label for="username" class="span_input">Username</label>
-          </div>
-          <div class="container-input">
-            <input
-              type="password"
-              class="input_form"
-              id="password"
-              placeholder="  "
-            />
-            <label for="password" class="span_input">Password</label>
-          </div>
-          <div class="container-input">
-            <input type="submit" value="Submit" class="submit" />
-          </div>
-        </div>
-      </form>
-    </div>
-  </body>
-</html>
+{% extends "layouts/layout.html" %}
+
+{% block body %}
+<div></div>
+{% endblock %}
