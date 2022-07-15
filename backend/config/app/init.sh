@@ -2,6 +2,11 @@
 
 ACTUAL=$(pwd)
 
+sudo kill -9 `sudo lsof -t -i:4000`
+sudo kill -9 `sudo lsof -t -i:4001`
+
+clear
+
 if [[ -e "$ACTUAL/python3" ]]
 then 
     ROUTE=$ACTUAL
