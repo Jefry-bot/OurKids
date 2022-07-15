@@ -1,8 +1,8 @@
 backend/**/src/**/__pycache__/**
 backend/**/env/**
 
-frontend/env/**
-frontend/src/**/__pycache__/**
+frontend/**/env/**
+frontend/**/src/**/__pycache__/**
 
 *.pyc
 *.pyo
