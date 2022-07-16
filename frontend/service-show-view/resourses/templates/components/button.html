@@ -4,6 +4,6 @@
 <div class="container-input">
     <input type="submit" value="{{text}}" class="submit" />
 
-    {{ Link(('auth_routes.' + detail|lower), detail) }}
+    {{ Link(('.' + detail|lower), detail) }}
 </div>
 {% endmacro %}

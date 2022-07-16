@@ -1,5 +1,5 @@
 import string
-from flask import Blueprint, redirect, render_template, request, url_for
+from flask import Blueprint, flash, redirect, render_template, request, url_for
 
 class AuthController:
     auth_routes: Blueprint = Blueprint("auth_routes", __name__)
@@ -12,7 +12,7 @@ class AuthController:
             password = request.form['Password']
             
             if username == 'Jefry' and password == '12345':
-                return redirect(url_for('.register'))
+                return render_template('screens/home.html')    
             else:
                 return render_template('forms/login.html', error="ERROR")    
         else:

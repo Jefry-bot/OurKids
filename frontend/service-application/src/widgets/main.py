@@ -24,7 +24,7 @@ class Ui_Form(object):
         self.verticalLayout.setContentsMargins(0, 0, 0, 0)
         self.webEngineView = QWebEngineView(Form)
         self.webEngineView.setObjectName(u"webEngineView")
-        self.webEngineView.setUrl("http://localhost:3000")
+        self.webEngineView.setUrl("http://localhost:3000/login")
 
         self.verticalLayout.addWidget(self.webEngineView) 
 
