@@ -1,5 +1,4 @@
-colorama=>0.4.5
-Flask=>2.1.3
-requests=>2.28.1
-ourkids-common-frontend==0.0.3
-Flask-Modals=>0.5.0
+colorama>=0.4.5
+Flask>=2.1.3
+requests>=2.28.1
+ourkids-common-frontend>=0.0.4

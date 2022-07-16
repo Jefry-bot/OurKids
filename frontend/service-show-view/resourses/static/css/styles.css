@@ -13,7 +13,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: #0093e9;
+  background-color: #2e1676;
   background-image: url("../images/2843425.jpg");
   background-size: cover;
   background-blend-mode: screen;
@@ -24,6 +24,7 @@ body {
   height: 25rem;
   background-color: white;
   border-radius: 30px;
+  position: relative;
 }
 
 .input_form {
@@ -38,7 +39,7 @@ body {
 
 
 .input_form:focus {
-    border-color: #0093e9;
+    border-color: #2e1676;
 }
 
 .label_input {
@@ -51,6 +52,18 @@ body {
     transition: all .5s;
 }
 
+.container_img {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.container_img img {
+    width: 100px;
+    height: 100px;
+    transform: translateY(15px) translateX(0) scale(.7);
+}
 
 .container-input {
     display: flex;
@@ -84,7 +97,7 @@ body {
 .input_form:focus ~ .label_input,
 .input_form:not(:placeholder-shown) + .label_input{
     transform: translateY(-20px) translateX(-15px) scale(.7);
-    color: #0093e9;
+    color: #2e1676;
 }
 
 .submit {
@@ -92,7 +105,7 @@ body {
     height: 30%;
     transform: translateY(-20px);
     border: 0;
-    background-color: #67c5fb;
+    background-color: #46308a;
     border-radius: 20px;
     font-size: 13px;
     font-weight: bold;

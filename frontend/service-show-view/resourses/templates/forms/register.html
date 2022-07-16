@@ -3,7 +3,8 @@
 {% from "components/button.html" import Button with context %}
 
 <div class="container grid grid-cols-1 grid-rows-4" style="height: 30rem;">
-  <div>
+  <div class="container_img">
+    <img src="{{ url_for('static', filename='images/logo.jpg') }}" alt="Logo">
   </div>
   {{ Input('Username', 'text') }}
   {{ Input('   Email', 'email', '69%') }}
