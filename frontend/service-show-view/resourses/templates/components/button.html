@@ -1,0 +1,9 @@
+{% macro Button(text, detail) %}
+{% from "components/link.html" import Link with context %}
+
+<div class="container-input">
+    <input type="submit" value="{{text}}" class="submit" />
+
+    {{ Link(('auth_routes.' + detail|lower), detail) }}
+</div>
+{% endmacro %}

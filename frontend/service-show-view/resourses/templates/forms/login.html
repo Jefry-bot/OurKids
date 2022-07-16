@@ -1,40 +1,18 @@
-{% extends "layouts/layout.html" %}
+{% extends "layouts/form.html" %}
+{% from "components/input.html" import Input with context %}
+{% from "components/button.html" import Button with context %}
 
-{% block body %}
-<div id="root">
-  <form method="post">
-    <div class="container grid grid-cols-1 grid-rows-3">
-      <div>
+{% block contentbody %}
+<div class="container grid grid-cols-1 grid-rows-3">
+    <div>
         {% if error != None %} 
           {% block content %}
             <div style="background-color: red; font-size: 50px">ERROR</div>
           {% endblock content %} 
         {% endif %}
       </div>
-      <div class="container-input">
-        <input
-          type="text"
-          class="input_form"
-          id="username"
-          placeholder="  "
-          name="username"
-        />
-        <label for="username" class="span_input">Username</label>
-      </div>
-      <div class="container-input">
-        <input
-          type="password"
-          class="input_form"
-          id="password"
-          placeholder="  "
-          name="password"
-        />
-        <label for="password" class="span_input">Password</label>
-      </div>
-      <div class="container-input">
-        <input type="submit" value="Submit" class="submit" />
-      </div>
-    </div>
-  </form>
+      {{ Input('Username', 'text', '63%') }}
+      {{ Input('Password', 'password', '64%') }}
+      {{ Button('Sign up', 'Register') }}
 </div>
 {% endblock %}

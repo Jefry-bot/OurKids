@@ -41,7 +41,7 @@ body {
     border-color: #0093e9;
 }
 
-.span_input {
+.label_input {
     color: #8E8E8E;
     display: inline-block;
     position: absolute;
@@ -70,15 +70,19 @@ body {
 }
 
 .grid-rows-3 {
-    grid-template-rows: 20% repeat(3, minmax(0, 1fr));
+    grid-template-rows: 20% repeat(2, minmax(0, 1fr)) 30%;
+}
+
+.grid-rows-4 {
+    grid-template-rows: 20% repeat(3, minmax(0, 1fr)) 30%
 }
 
 .gap {
     gap: 1rem;
 }
 
-.input_form:focus ~ .span_input,
-.input_form:not(:placeholder-shown) + .span_input{
+.input_form:focus ~ .label_input,
+.input_form:not(:placeholder-shown) + .label_input{
     transform: translateY(-20px) translateX(-15px) scale(.7);
     color: #0093e9;
 }
@@ -92,5 +96,5 @@ body {
     border-radius: 20px;
     font-size: 13px;
     font-weight: bold;
-    color: wheat;
+    color: white;
 }

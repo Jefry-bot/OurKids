@@ -1,10 +1,13 @@
-{% extends "layouts/layout.html" %}
-{% from 'components/person.html' import Person with context %}
+{% extends "layouts/form.html" %} {% block contentbody %}
+{% from "components/input.html" import Input with context %}
+{% from "components/button.html" import Button with context %}
 
-{% block body %}
-    <div style="margin: 20px; background-color: blue; width: 50vw; height: 50vh;">
-        {% for person in persons -%}
-            {{ Person(person['name'], person['lastname']) }}
-        {% endfor -%}   
-    </div>
+<div class="container grid grid-cols-1 grid-rows-4" style="height: 30rem;">
+  <div>
+  </div>
+  {{ Input('Username', 'text') }}
+  {{ Input('   Email', 'email', '69%') }}
+  {{ Input('Password', 'password', '64.2%') }}
+  {{ Button('Register', 'Login') }}
+</div>
 {% endblock %}

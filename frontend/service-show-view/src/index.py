@@ -1,9 +1,7 @@
 import os
 import requests
-
 from ourkids_f.load import load_env
 load_env(os.path.dirname(__file__))
-
 from flask import Flask
 from ourkids_f import config
 from constant.controllers import CONTROLLERS

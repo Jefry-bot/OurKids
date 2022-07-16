@@ -1,0 +1,12 @@
+{% macro Input(text, type, right) %}
+<div class="container-input">
+  <input
+    type={{type}}
+    class="input_form"
+    id="{{text}}"
+    placeholder="  "
+    name="{{text}}"
+  />
+  <label for="{{text}}" class="label_input" style="right: {{right}};">{{text}}</label>
+</div>
+{% endmacro %}

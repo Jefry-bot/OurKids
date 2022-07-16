@@ -8,8 +8,8 @@ class AuthController:
     @auth_routes.post("/login")
     def login():
         if request.method == "POST":
-            username = request.form['username']
-            password = request.form['password']
+            username = request.form['Username']
+            password = request.form['Password']
             
             if username == 'Jefry' and password == '12345':
                 return redirect(url_for('.register'))
