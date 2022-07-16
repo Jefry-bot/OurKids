@@ -13,7 +13,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: #2e1676;
+  background-color: #0d0527;
   background-image: url("../images/2843425.jpg");
   background-size: cover;
   background-blend-mode: screen;
@@ -22,14 +22,16 @@ body {
 .container {
   width: 25rem;
   height: 25rem;
-  background-color: white;
+  background-color: rgb(26, 24, 27);
   border-radius: 30px;
   position: relative;
 }
 
 .input_form {
+    background-color: rgb(26, 24, 27);
     border: 0;
     border-bottom: 1px solid #CBC6C5;
+    color: white;
     width: 60%;
     padding-top: 10px;
     font-size: 17px;
@@ -39,7 +41,7 @@ body {
 
 
 .input_form:focus {
-    border-color: #2e1676;
+    border-color: rgb(29, 160, 172);
 }
 
 .label_input {
@@ -60,6 +62,8 @@ body {
 }
 
 .container_img img {
+    filter: brightness(1);
+    mix-blend-mode: multiply;
     width: 100px;
     height: 100px;
     transform: translateY(15px) translateX(0) scale(.7);
@@ -97,7 +101,7 @@ body {
 .input_form:focus ~ .label_input,
 .input_form:not(:placeholder-shown) + .label_input{
     transform: translateY(-20px) translateX(-15px) scale(.7);
-    color: #2e1676;
+    color: rgb(29, 160, 172);
 }
 
 .submit {

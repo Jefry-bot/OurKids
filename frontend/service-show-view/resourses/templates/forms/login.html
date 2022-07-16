@@ -1,5 +1,7 @@
-{% extends "layouts/form.html" %} {% from "components/input.html" import Input
-with context %} {% from "components/button.html" import Button with context %}
+{% extends "layouts/form.html" %} 
+{% from "components/input.html" import Input with context %} 
+{% from "components/button.html" import Button with context %}
+
 {% block contentbody %}
 <div class="container grid grid-cols-1 grid-rows-3">
   <div>
@@ -10,7 +12,18 @@ with context %} {% from "components/button.html" import Button with context %}
       />
     </div>
     {% if error != None %} {% block content %}
-      <label style="background-color: rgb(232, 81, 43); border-radius: 18px; padding: 5px; font-size: 20px; top: 5%; right: 3%; position: absolute">Error in login</label>
+    <label
+      style="
+        background-color: rgb(232, 81, 43);
+        border-radius: 18px;
+        padding: 5px;
+        font-size: 20px;
+        top: 5%;
+        right: 3%;
+        position: absolute;
+      "
+      >Error in login</label
+    >
     {% endblock content %} {% endif %}
   </div>
   {{ Input('Username', 'text', '63%') }} {{ Input('Password', 'password', '64%')
