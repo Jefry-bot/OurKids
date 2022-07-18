@@ -1,12 +1,46 @@
-{% macro Input(text, type, right) %}
+{% macro Input(field, right) %}
 <div class="container-input">
-  <input
-    type={{type}}
-    class="input_form"
-    id="{{text}}"
-    placeholder="  "
-    name="{{text}}"
-  />
-  <label for="{{text}}" class="label_input" style="right: {{right}};">{{text}}</label>
+  {{ field(class_="input_form") }}
+  <label
+    for="input_form"
+    class="label_input"
+    style="right: {{right}};"
+    id="element_{{field.name}}"
+    >{{ field.label }}</label
+  >
+
+  {% if field.errors %}
+  <script>
+    (function () {
+      Swal.fire({
+        popup: "swal2-show",
+        title: "Error!",
+        width: "20rem",
+        padding: "2rem",
+        text: "Please insert the data correctly.",
+        icon: "error",
+        confirmButtonText: "Ok",
+      });
+    })();
+  </script>
+  {% endif %}
+  
+  <script>
+    document
+      .getElementById("{{ field.name }}")
+      .addEventListener("invalid", (e) => {
+        e.preventDefault();
+
+        document.getElementById("{{ field.name }}").classList.add("error");
+      });
+
+    document
+      .getElementById("{{ field.name }}")
+      .addEventListener("input", (e) => {
+        if (document.getElementById("{{ field.name }}").validity.valid) {
+          document.getElementById("{{ field.name }}").classList.remove("error");
+        }
+      });
+  </script>
 </div>
 {% endmacro %}

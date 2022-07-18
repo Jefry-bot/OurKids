@@ -3,7 +3,7 @@
 {% from "components/button.html" import Button with context %}
 
 {% block contentbody %}
-<div class="container grid grid-cols-1 grid-rows-3">
+<div class="form-container container grid grid-cols-1 grid-rows-3">
   <div>
     <div class="container_img">
       <img
@@ -11,22 +11,40 @@
         alt="Logo"
       />
     </div>
-    {% if error != None %} {% block content %}
-    <label
-      style="
-        background-color: rgb(232, 81, 43);
-        border-radius: 18px;
-        padding: 5px;
-        font-size: 20px;
-        top: 5%;
-        right: 3%;
-        position: absolute;
-      "
-      >Error in login</label
-    >
-    {% endblock content %} {% endif %}
+
+    {% if error != None %} {% block contento %}
+    <script>
+      (function () {
+        Swal.fire({
+          title: "Error!",
+          width: "20rem",
+          padding: "2rem",
+          text: "Error in login.",
+          icon: "error",
+          confirmButtonText: "Ok",
+        });
+      })();
+    </script>
+    {% endblock contento %} {% endif %} 
+
+    {% if success != None %} {% block contento2 %}
+    <script>
+      (function () {
+        Swal.fire({
+          title: "Register Success!",
+          width: "20rem",
+          icon: "success",
+          text: "Sign in please.",
+          confirmButtonText: "Ok",
+        });
+      })();
+    </script>
+    {% endblock contento2 %} {% endif %}
+
   </div>
-  {{ Input('Username', 'text', '63%') }} {{ Input('Password', 'password', '64%')
-  }} {{ Button('Sign up', 'Register') }}
+
+  {{ Input(form.username, '63%') }} 
+  {{ Input(form.password, '64%') }} 
+  {{ Button('Sign up', 'Register') }}
 </div>
 {% endblock %}
