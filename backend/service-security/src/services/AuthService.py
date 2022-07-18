@@ -4,6 +4,7 @@ from services.UserService import UserService
 from werkzeug.security import check_password_hash
 from jwt import encode, decode
 from jwt import exceptions
+from ourkids.NotAuthException import NotAuthException
 
 class AuthService:
     @staticmethod
@@ -34,3 +35,11 @@ class AuthService:
             if data['username'] == user['username'] and check_password_hash(user['password'], data['password']):
                 return True
         return False 
+    
+    @staticmethod
+    def verify(request):
+        try:
+            token = request.headers['Authorization'].split(" ")[1]
+        except KeyError:
+            raise NotAuthException("Error")
+        AuthService.validate_token(token, output = False)
