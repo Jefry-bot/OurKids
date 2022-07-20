@@ -1,3 +1,13 @@
 {% macro Link(endpoint, text) -%}
-<a href="{{ url_for(endpoint) }}" style="font-size: 15px; color: white; text-decoration: none;" class="linko">{{ text }}</a>
+<a
+  href="{{ url_for(endpoint) }}"
+  style="
+    font-size: 15px;
+    color: white;
+    text-decoration: none;
+    justify-self: center;
+  "
+  class="linko"
+  >{{ text }}</a
+>
 {% endmacro -%}

@@ -21,8 +21,11 @@ body {
 #root-screen {
   width: 100vw;
   height: 100vh;
-  background-color: #000000;
-  background-image: url("../images/2843425.jpg");
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-rows: 9.7% repeat(3, minmax(0, 1fr));
+  background-color: #223187;
+  background-image: url("../images/as.png");
   background-size: cover;
   background-blend-mode: screen;
 }
@@ -33,18 +36,22 @@ body {
   background-color: rgb(26, 24, 27);
   border-radius: 30px;
   position: relative;
+  padding: 10px 70px;
+  box-sizing: border-box;
+  align-items: center;
 }
 
 .input_form {
-  background-color: rgb(26, 24, 27);
+  background-color: transparent;
   border: 0;
   border-bottom: 1px solid #cbc6c5;
   color: white;
-  width: 60%;
+  width: 100%;
   padding-top: 10px;
   font-size: 17px;
   outline: 0;
   transition: border 1.5s;
+  order: 1;
 }
 
 .input_form:hover ~ .label_input {
@@ -57,12 +64,12 @@ body {
 
 .label_input {
   color: #8e8e8e;
-  display: inline-block;
-  position: absolute;
+  order: 0;
+  margin-top: 10px;
   pointer-events: none;
-  right: 63%;
-  top: 42%;
   transition: all 0.5s;
+  position: absolute;
+  font-size: 11pt;
 }
 
 .container_img {
@@ -73,18 +80,19 @@ body {
 }
 
 .container_img img {
-  width: 100px;
-  height: 100px;
-  border-radius: 100px;
-  transform: translateY(15px) translateX(0) scale(0.7);
+  width: 70px;
+  height: 70px;
+  border: 2px solid white;
+  border-radius: 100%;
 }
 
 .container-input {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-rows: max-content max-content;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   position: relative;
+  grid-template-columns: 100%;
 }
 
 .grid {
@@ -109,15 +117,14 @@ body {
 
 .input_form:focus ~ .label_input,
 .input_form:not(:placeholder-shown) + .label_input {
-  transform: translateY(-20px) translateX(-15px) scale(0.7);
+  font-size: 8pt;
+  transform: translateY(-15px);
   color: rgb(29, 160, 172);
 }
 
 .input_form:focus,
 .input_form:not(:placeholder-shown) {
   border-color: rgb(29, 160, 172);
-  padding-left: 5px;
-  padding-right: 5px;
   transition: padding 0.5s;
 }
 
@@ -132,12 +139,11 @@ body {
 }
 
 .submit {
-  width: 70%;
-  height: 30%;
-  transform: translateY(-20px);
+  width: 100%;
   border: 0;
   background-color: #46308a;
   border-radius: 20px;
+  padding: 8px 0px;
   font-size: 13px;
   font-weight: bold;
   color: white;
@@ -149,7 +155,7 @@ body {
 }
 
 .linko {
-  transition: all .7s;
+  transition: all 0.7s;
 }
 
 .linko:hover {

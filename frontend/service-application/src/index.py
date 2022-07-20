@@ -14,7 +14,7 @@ if __name__ == '__main__':
     
     colorama.init()
     window = Main()
-    window.showMaximized() 
+    window.showFullScreen() 
     
     system('clear')
     print(Fore.GREEN + Style.BRIGHT + "Application current in local")

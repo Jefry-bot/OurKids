@@ -10,6 +10,7 @@
       href="{{ url_for('static', filename='./css/styles.css') }}"
     />
   </head>
+  {% block head %} {% endblock %}
   <body>
     <div class="modal-body"></div>
     {% block body %} {% endblock %}

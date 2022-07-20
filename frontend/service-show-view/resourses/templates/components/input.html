@@ -1,10 +1,43 @@
-{% macro Input(field, right) %}
+{% macro Input(field, style) %}
+<style>
+  .style_{{field.name}} {
+    width: 100%;
+    align-self: center;
+  }
+
+  .style_{{field.name}} input {
+    border-color: rgb(138, 138, 138);
+    color: rgb(26, 24, 27) !important;
+  }
+
+  .style_{{field.name}} input:focus ~ .label_input,
+  .style_{{field.name}} input:not(:placeholder-shown) + .label_input {
+    font-size: 8pt;
+    transform: translateY(-15px);
+    color: rgb(88, 88, 231);
+  }
+
+  .style_{{field.name}} input:focus,
+  .style_{{field.name}} input:not(:placeholder-shown) {
+    border-color: rgb(88, 88, 231);
+    transition: padding 0.5s;
+  }
+
+  .style_{{field.name}} input:hover ~ .label_input {
+    color: #6c7396;
+  }
+</style>
+
+{% if style %}
+<div class="container-input style_{{field.name}}">
+{% else %}
 <div class="container-input">
+{% endif%}
+  
   {{ field(class_="input_form") }}
   <label
     for="input_form"
     class="label_input"
-    style="right: {{right}};"
     id="element_{{field.name}}"
     >{{ field.label }}</label
   >

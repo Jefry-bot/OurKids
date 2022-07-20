@@ -1,9 +1,16 @@
-{% macro Button(text, detail) %}
-{% from "components/link.html" import Link with context %}
+{% macro Button(text, detail) %} {% from "components/link.html" import Link with
+context %}
 
-<div class="container-input">
-    <input type="submit" value="{{text}}" class="submit" />
+<div
+  style="
+    display: grid;
+    width: 100%;
+    align-items: center;
+    row-gap: 10px;
+  "
+>
+  <button type="submit" class="submit">{{text}}</button>
 
-    {{ Link(('.' + detail|lower), detail) }}
+  {{ Link(('.' + detail|lower), detail) }}
 </div>
 {% endmacro %}
