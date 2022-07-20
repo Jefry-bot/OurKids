@@ -138,6 +138,16 @@ body {
   color: #dd2c00 !important;
 }
 
+.error-complaint {
+  border-color: #f77d5f !important;
+}
+.error-complaint:not(:placeholder-shown) ~ .label_input {
+  color: #f77d5f !important;
+}
+.error-complaint:focus ~ .label_input {
+  color: #f77d5f !important;
+}
+
 .submit {
   width: 100%;
   border: 0;

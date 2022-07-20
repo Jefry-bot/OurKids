@@ -7,8 +7,6 @@ from utils.validations import ComplaintForm
 class ScreensController:
     screens_routes: Blueprint = Blueprint("screens_routes", __name__)
     
-    
-    
     @screens_routes.get('/home')
     def home():
         return render_template('screens/home.html')

@@ -13,11 +13,13 @@ with context %} {% from "components/button.html" import Button with context %}
   }
 
   #form {
+    width: 70vw;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-rows: 1fr;
     grid-column: 1 / 2;
     grid-row: 2 / span 2;
     margin-left: 70px;
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .container {
@@ -53,47 +55,47 @@ with context %} {% from "components/button.html" import Button with context %}
 
 <div id="root">
   <form method="post" id="form">
-    <div class="container grid grid-cols-1 grid-rows-4" style="height: 30rem">
+    <div class="container grid grid-cols-1 grid-rows-4" style="height: 30rem; grid-column: 1; grid-row: 1; align-self: center;">
       {{ Input(form.name) }} {{ Input(form.description) }} {{
       Input(form.content) }} {{ Input(form.person) }}
     </div>
-  </form>
-  <div class="container-white">
-    <div class="container-to-information" style="color: black;">
-      {{ Input(form.date, true) }} {{ Input(form.problem, true) }} {{
-      Input(form.current, true) }} {{ Input(form.managment, true) }}
-      <div style="display: flex; justify-content: center; align-items: center;">
-        <button
-          type="submit"
-          class="submit"
-          style="width: 100%; background-color:rgb(29, 160, 172); "
-        >
-          Insert
-        </button>
+    <div class="container-white" style="grid-column: 2; grid-row: 1;">
+      <div class="container-to-information" style="color: black;">
+        {{ Input(form.date, true) }} {{ Input(form.problem, true) }} {{
+        Input(form.current, true) }} {{ Input(form.managment, true) }}
+        <div style="display: flex; justify-content: center; align-items: center;">
+          <button
+            type="submit"
+            class="submit"
+            style="width: 100%; background-color:rgb(29, 160, 172); "
+          >
+            Insert
+          </button>
+        </div>
       </div>
-    </div>
-    <divx
-      style="
-        background-color: rgb(26, 24, 27);
-        background-size: cover;
-        background-blend-mode: screen;
-        grid-column: 2;
-        grid-row: 1;
-        width: 100%;
-        height: 100%;
-        border-top-left-radius: 30px;
-        border-top-right-radius: 30px;
-        border-bottom-right-radius: 30px;
-        position: relative;
-        overflow: hidden;
-      "
-    >
-      <img
-        src="../../static/images/abstract.png"
-        style="height: 100%; opacity: 1"
-        alt=""
-      />
-    </div>
+      <divx
+        style="
+          background-color: rgb(26, 24, 27);
+          background-size: cover;
+          background-blend-mode: screen;
+          grid-column: 2;
+          grid-row: 1;
+          width: 100%;
+          height: 100%;
+          border-top-left-radius: 30px;
+          border-top-right-radius: 30px;
+          border-bottom-right-radius: 30px;
+          position: relative;
+          overflow: hidden;
+        "
+      >
+        <img
+          src="../../static/images/abstract.png"
+          style="height: 100%; opacity: 1"
+          alt=""
+        />
+      </div>
+  </form>
   </div>
 </div>
 {% endblock %}

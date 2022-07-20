@@ -32,7 +32,7 @@
 <div class="container-input style_{{field.name}}">
 {% else %}
 <div class="container-input">
-{% endif%}
+{% endif %}
   
   {{ field(class_="input_form") }}
   <label
@@ -63,15 +63,22 @@
       .getElementById("{{ field.name }}")
       .addEventListener("invalid", (e) => {
         e.preventDefault();
-
+        {% if style %}
+        document.getElementById("{{ field.name }}").classList.add("error-complaint");
+        {% else %}
         document.getElementById("{{ field.name }}").classList.add("error");
+        {% endif %}
       });
 
     document
       .getElementById("{{ field.name }}")
       .addEventListener("input", (e) => {
         if (document.getElementById("{{ field.name }}").validity.valid) {
+          {% if style %}
+          document.getElementById("{{ field.name }}").classList.remove("error-complaint");
+          {% else %}
           document.getElementById("{{ field.name }}").classList.remove("error");
+          {% endif %}
         }
       });
   </script>

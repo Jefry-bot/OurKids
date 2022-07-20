@@ -28,3 +28,4 @@ $PYTHON3 -m venv $ROUTE-application/env
 source $ROUTE-application/$ACTIVATE
 pip install -r $ROUTE-application/requirements.txt
 deactivate
+clear
