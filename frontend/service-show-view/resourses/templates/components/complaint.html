@@ -1,0 +1,15 @@
+{% macro Complaint(complaint) %}
+
+<div class="complaint-item">
+    <div class="content-item">
+        <label>Name:</label>
+    </div>
+    <div class="content-item">
+        <span>{{ complaint['name'] }}</span>
+    </div>
+    <div class="content-item">
+        <button>Detail</button>
+    </div>
+</div>
+
+{% endmacro %}

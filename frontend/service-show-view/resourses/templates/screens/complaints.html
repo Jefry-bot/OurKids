@@ -1,0 +1,16 @@
+{% extends "layouts/layout.html" %} 
+{% from "components/complaint.html" import Complaint with context %}
+
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/complaint.css') }}">
+{% endblock %}
+
+{% block body %}
+<div id="root">
+    <div class="complaints">
+        {% for complaint in complaints %}
+            {{ Complaint(complaint) }}
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

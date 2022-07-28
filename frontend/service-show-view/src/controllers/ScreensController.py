@@ -25,3 +25,8 @@ class ScreensController:
             return redirect(url_for('.home'))
         
         return render_template('forms/complaint.html', form=form)
+
+    @screens_routes.route('/complaints')
+    def complaints():
+        complaints = requests.get("http://localhost:4000/api/complaints", headers={"Authorization": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZSI6IkplZnJ5IiwicGFzc3dvcmQiOiIxMjMiLCJleHAiOjE2NTkxMDU3NzN9.hSLCLZ_QM251pgArx6uJtH7M1ft27PORvt9kN3KO9OU"}).json()['data']
+        return render_template('screens/complaints.html', complaints=complaints)
