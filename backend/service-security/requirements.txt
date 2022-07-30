@@ -1,4 +1,4 @@
-ourkids-common>=0.0.3
+ourkids-common>=0.0.4
 Flask-Cors>=3.0.10
 PyJWT>=1.7.1 
 Werkzeug>=2.1.2

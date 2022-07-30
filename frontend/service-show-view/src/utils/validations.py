@@ -1,4 +1,4 @@
-from wtforms import Form, StringField, PasswordField, EmailField, validators
+from wtforms import Form, StringField, PasswordField, EmailField, validators, IntegerField
 
 class RegistrationForm(Form):
     username = StringField('Username', [validators.Length(min=4, max=25), validators.DataRequired()], render_kw={"placeholder": "  ", "autocomplete": "off"})
@@ -19,6 +19,6 @@ class ComplaintForm(Form):
     content = StringField('Content', [validators.Length(min=4, max=25), validators.DataRequired()], render_kw={"placeholder": "  ", "autocomplete": "off"})
     person = StringField('Person', [validators.Length(min=4, max=25), validators.DataRequired()], render_kw={"placeholder": "  ", "autocomplete": "off"})
     problem = StringField('Problem', [validators.Length(min=4, max=25), validators.DataRequired()], render_kw={"placeholder": "  ", "autocomplete": "off"})
-    date = StringField('Date', [validators.Length(min=4, max=25), validators.DataRequired()], render_kw={"placeholder": "  ", "autocomplete": "off"})
-    current = StringField('Current', [validators.Length(min=4, max=25), validators.DataRequired()], render_kw={"placeholder": "  ", "autocomplete": "off"})
-    managment = StringField('Managment', [validators.Length(min=4, max=25), validators.DataRequired()], render_kw={"placeholder": "  ", "autocomplete": "off"})
+    day = StringField('Date', [validators.Length(min=4, max=25), validators.DataRequired()], render_kw={"placeholder": "  ", "autocomplete": "off"})
+    requirement = StringField('Requirement', [validators.Length(min=4, max=25), validators.DataRequired()], render_kw={"placeholder": "  ", "autocomplete": "off"})
+    fathers = IntegerField('Number fathers', [validators.DataRequired()], render_kw={"placeholder": "  ", "autocomplete": "off"})

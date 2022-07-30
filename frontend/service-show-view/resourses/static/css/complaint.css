@@ -1,10 +1,3 @@
-#root {
-    background-color: #223187 !important;
-    background-image: url("../../static/images/as.png") !important;
-    background-size: cover !important;
-    background-blend-mode: screen !important;
-}
-
 .complaints {
     width: 30rem;
     height: 30rem;

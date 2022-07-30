@@ -14,19 +14,34 @@ class ScreensController:
     @screens_routes.route('/complaint', methods=['GET', 'POST'])
     def complaint():
         form = ComplaintForm(request.form)
+        token = "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJwYXNzd29yZCI6IjEyMyIsInVzZXJuYW1lIjoiSmVmcnkiLCJleHAiOjE2NTkyMzM3NjV9.4c5MAK9lzTZTUTpHQMzWNqTz79g8-C3XfD3myA43t-w"
         
         if request.method == "POST" and form.validate():
             requests.post("http://localhost:4000/api/complaints", 
                           json={
-                              "name": form.username.data, 
-                              "status": True, 
-                              "description": form.description.data}, 
-                          headers={"Authorization": "Bearer "}).json()['message']
+                              "name": form.name.data, 
+                              "description": form.description.data, 
+                              "content": form.description.data,
+                              "person": form.person.data,
+                              "day": form.day.data,
+                              "problem": form.problem.data,
+                              "requirement": form.requirement.data,
+                              "fathers": form.fathers.data}, 
+                          headers={"Authorization": token}).json()['message']
             return redirect(url_for('.home'))
         
         return render_template('forms/complaint.html', form=form)
 
     @screens_routes.route('/complaints')
     def complaints():
-        complaints = requests.get("http://localhost:4000/api/complaints", headers={"Authorization": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZSI6IkplZnJ5IiwicGFzc3dvcmQiOiIxMjMiLCJleHAiOjE2NTkxMDU3NzN9.hSLCLZ_QM251pgArx6uJtH7M1ft27PORvt9kN3KO9OU"}).json()['data']
+        token = "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJwYXNzd29yZCI6IjEyMyIsInVzZXJuYW1lIjoiSmVmcnkiLCJleHAiOjE2NTkyMzM3NjV9.4c5MAK9lzTZTUTpHQMzWNqTz79g8-C3XfD3myA43t-w"
+
+        complaints = requests.get("http://localhost:4000/api/complaints", headers={"Authorization": token}).json()['data']
         return render_template('screens/complaints.html', complaints=complaints)
+
+    @screens_routes.route('/complaint/<id>')
+    def complaintFind(id):
+        token = "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJwYXNzd29yZCI6IjEyMyIsInVzZXJuYW1lIjoiSmVmcnkiLCJleHAiOjE2NTkyMzM3NjV9.4c5MAK9lzTZTUTpHQMzWNqTz79g8-C3XfD3myA43t-w"
+
+        complaint = requests.get(f"http://localhost:4000/api/complaints/{id}", headers={"Authorization": token}).json()['data']
+        return render_template('screens/detail.html', complaint=complaint)

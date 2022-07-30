@@ -1,4 +1,5 @@
 {% macro Complaint(complaint) %}
+{% from "components/link.html" import Link with context %}
 
 <div class="complaint-item">
     <div class="content-item">
@@ -8,7 +9,7 @@
         <span>{{ complaint['name'] }}</span>
     </div>
     <div class="content-item">
-        <button>Detail</button>
+        <button><a href="http://localhost:3000/complaint/{{ complaint['id'] }}" style="color: white;">Detail</a></button>
     </div>
 </div>
 

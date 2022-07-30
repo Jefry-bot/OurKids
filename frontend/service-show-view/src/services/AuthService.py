@@ -10,7 +10,9 @@ class Service:
     def login(self, request, success):
         form = LoginForm(request.form)
         if request.method == "POST" and form.validate():
-            token = requests.post('http://localhost:4001/api/login', json={"username": form.username.data, "password": form.password.data}).text
+            token = requests.post('http://localhost:4001/api/login', json={
+                "username": form.username.data, 
+                "password": form.password.data}).text
             
             try:
                 data = requests.get("http://localhost:4001/api/verify/token", headers={"Authorization": ("Bearer " + token)}).json()
@@ -24,7 +26,12 @@ class Service:
         form = RegistrationForm(request.form)
         
         if request.method == "POST" and form.validate():
-            requests.post("http://localhost:4001/api/users", json={"username": form.username.data, "password": form.password.data, "status": True}).json()['message']
+            requests.post("http://localhost:4001/api/users", json={
+                "username": form.username.data, 
+                "password": form.password.data, 
+                "email": form.email.data,
+                "status": True}).json()['message']
+                
             return redirect(url_for('.login', success="content"))    
         
         return render_template('forms/register.html', form=form)
