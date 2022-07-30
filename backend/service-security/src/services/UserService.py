@@ -6,7 +6,8 @@ from entities.user import User
 from ourkids.NotFoundException import NotFoundException
 from flask import request
 from werkzeug.security import generate_password_hash
-
+from os.path import dirname
+from entities.user import User
 
 class UserService(DataBase):
     def __init__(self) -> None:
@@ -65,3 +66,62 @@ class UserService(DataBase):
             raise NotFoundException("No found exception")
 
         return user
+
+class UserServiceTxt:
+    def __init__(self) -> None:
+        self.user_path = dirname(__file__) + '/../database/user.txt'
+        self.id_path = dirname(__file__) + '/../database/id_user.txt'
+
+    def commit(self, users):
+        with open(self.user_path, 'w') as user_table:
+            user_table.writelines(users)
+
+    def id_actual(self):
+        with open(self.id_path, 'r') as data:
+            id = int(data.readline(4)) + 1
+        with open(self.id_path, 'w') as data:
+            data.write(str((id)) + "  ")
+        return id
+
+    def findAll(self):
+        with open(self.user_path) as user_table:
+            users = []
+            users_data = user_table.readlines()
+            
+            for object_data in users_data:
+                user = User(object_data)
+                users.append(user.__dict__)
+        return users
+            
+    def findById(self, id: int):
+        users = self.findAll()
+        
+        for index, user in enumerate(users):
+            if str(user['id']) == str(id):
+                return users[index]
+        raise NotFoundException("Not user found")
+            
+    def deleteById(self, id: int):
+        users = self.findAll()
+        self.findAll()
+        
+        for index, user in enumerate(users):
+            if str(user['id']) == str(id):
+                del users[index]
+        self.commit(User.convert_data(users))
+
+    def update(self, data):
+        users = self.findAll()
+        
+        for index, user in enumerate(users):
+            if str(user['id']) == str(data['id']):
+                data['user'].id = data['id']
+                users[index] = data['user'].__dict__
+        self.commit(User.convert_data(users))
+        
+    def save(self, request):
+        users = self.findAll()
+        user = User(request=request)
+        user.id = self.id_actual()
+        users.append(user.__dict__)
+        self.commit(User.convert_data(users))

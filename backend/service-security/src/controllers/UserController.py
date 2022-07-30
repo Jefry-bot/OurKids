@@ -3,8 +3,9 @@ from flask import Blueprint, request
 from ourkids.NotAuthException import NotAuthException
 from services.AuthService import AuthService
 
-from services.UserService import UserService
+from services.UserService import UserServiceTxt
 from ourkids.ResponseBuilder import ResponseBuilder
+from entities.user import User
 
 class UserController:
     user_routes: Blueprint = Blueprint("user_routes", __name__)
@@ -12,7 +13,7 @@ class UserController:
 
     def __init__(self) -> None:
         global service
-        service = UserService()
+        service = UserServiceTxt()
 
     @user_routes.get(__url + "/<id>")
     def findById(id):
@@ -32,3 +33,8 @@ class UserController:
     @user_routes.post(__url)
     def save():
         return ResponseBuilder.voidSuccess(service.save, request)
+
+    @user_routes.put(__url + "/<id>")
+    def update(id):
+        user = User(request=request)
+        return ResponseBuilder.voidSuccess(service.update, {"id": id, "user": user})

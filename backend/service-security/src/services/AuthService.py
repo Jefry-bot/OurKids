@@ -1,6 +1,6 @@
 from datetime import datetime, timedelta
 from os import getenv
-from services.UserService import UserService
+from services.UserService import UserServiceTxt
 from werkzeug.security import check_password_hash
 from jwt import encode, decode
 from jwt import exceptions
@@ -28,11 +28,11 @@ class AuthService:
 
     @staticmethod
     def validateUser(data: any):
-        service = UserService()
+        service = UserServiceTxt()
         users = service.findAll()
 
         for user in users:
-            if data['username'] == user['username'] and check_password_hash(user['password'], data['password']):
+            if data['username'] == user['username'] and user['password'] == data['password']:
                 return True
         return False 
     

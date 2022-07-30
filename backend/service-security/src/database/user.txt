@@ -1,0 +1,4 @@
+1,manuela,123,manuela@gmail.com,0
+3,Jefry,123,prueba@gmail.com,1
+8,Jefry,123456,jefry@asd.com,0
+11,Jeasdsadfry,123456,jefry@asd.com,1

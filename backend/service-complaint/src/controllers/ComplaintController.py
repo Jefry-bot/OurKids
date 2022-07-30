@@ -2,9 +2,10 @@ import string
 from flask import Blueprint, request
 import requests
 
-from services.ComplaintService import ComplaintService
+from services.ComplaintService import ComplaintServiceTxt
 from ourkids.ResponseBuilder import ResponseBuilder
 from ourkids.NotAuthException import NotAuthException
+from entities.complaint import Complaint
 
 class ComplaintController:
     complaint_routes: Blueprint = Blueprint("complaint_routes", __name__)
@@ -12,7 +13,7 @@ class ComplaintController:
 
     def __init__(self) -> None:
         global service
-        service = ComplaintService()
+        service = ComplaintServiceTxt()
         
     @complaint_routes.before_request
     def verify_token_middleware():
@@ -40,3 +41,8 @@ class ComplaintController:
     @complaint_routes.post(__url)
     def save():
         return ResponseBuilder.voidSuccess(service.save, request)
+
+    @complaint_routes.put(__url + "/<id>")
+    def update(id):
+        complaint = Complaint(request=request)
+        return ResponseBuilder.voidSuccess(service.update, {"id": id, "complaint": complaint})
