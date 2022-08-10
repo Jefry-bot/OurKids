@@ -14,7 +14,7 @@ class ScreensController:
     @screens_routes.route('/complaint', methods=['GET', 'POST'])
     def complaint():
         form = ComplaintForm(request.form)
-        token = "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJwYXNzd29yZCI6IjEyMyIsInVzZXJuYW1lIjoiSmVmcnkiLCJleHAiOjE2NTkyMzM3NjV9.4c5MAK9lzTZTUTpHQMzWNqTz79g8-C3XfD3myA43t-w"
+        token = "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJwYXNzd29yZCI6IjEyMyIsInVzZXJuYW1lIjoiSmVmcnkiLCJleHAiOjE2NjAwNjU4ODN9.49gXeWits8EdN8uliBQNC6oxkEMCcOntIpgAznh4Ebs"
         
         if request.method == "POST" and form.validate():
             requests.post("http://localhost:4000/api/complaints", 
@@ -34,14 +34,30 @@ class ScreensController:
 
     @screens_routes.route('/complaints')
     def complaints():
-        token = "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJwYXNzd29yZCI6IjEyMyIsInVzZXJuYW1lIjoiSmVmcnkiLCJleHAiOjE2NTkyMzM3NjV9.4c5MAK9lzTZTUTpHQMzWNqTz79g8-C3XfD3myA43t-w"
+        token = "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJwYXNzd29yZCI6IjEyMyIsInVzZXJuYW1lIjoiSmVmcnkiLCJleHAiOjE2NjAwNjU4ODN9.49gXeWits8EdN8uliBQNC6oxkEMCcOntIpgAznh4Ebs"
 
         complaints = requests.get("http://localhost:4000/api/complaints", headers={"Authorization": token}).json()['data']
         return render_template('screens/complaints.html', complaints=complaints)
 
     @screens_routes.route('/complaint/<id>')
     def complaintFind(id):
-        token = "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJwYXNzd29yZCI6IjEyMyIsInVzZXJuYW1lIjoiSmVmcnkiLCJleHAiOjE2NTkyMzM3NjV9.4c5MAK9lzTZTUTpHQMzWNqTz79g8-C3XfD3myA43t-w"
+        token = "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJwYXNzd29yZCI6IjEyMyIsInVzZXJuYW1lIjoiSmVmcnkiLCJleHAiOjE2NjAwNjU4ODN9.49gXeWits8EdN8uliBQNC6oxkEMCcOntIpgAznh4Ebs"
 
         complaint = requests.get(f"http://localhost:4000/api/complaints/{id}", headers={"Authorization": token}).json()['data']
         return render_template('screens/detail.html', complaint=complaint)
+
+    @screens_routes.route('/delete/<id>')
+    def deleteById(id):
+        token = "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJwYXNzd29yZCI6IjEyMyIsInVzZXJuYW1lIjoiSmVmcnkiLCJleHAiOjE2NjAwNjU4ODN9.49gXeWits8EdN8uliBQNC6oxkEMCcOntIpgAznh4Ebs"
+
+        requests.delete(f"http://localhost:4000/api/complaints/{id}", headers={"Authorization": token})
+
+        return redirect(url_for('.complaints'))
+
+    @screens_routes.route('/update/<id>')
+    def updateById(id):
+        token = "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJwYXNzd29yZCI6IjEyMyIsInVzZXJuYW1lIjoiSmVmcnkiLCJleHAiOjE2NjAwNjU4ODN9.49gXeWits8EdN8uliBQNC6oxkEMCcOntIpgAznh4Ebs"
+
+        complaint = requests.get(f"http://localhost:4000/api/complaints/{id}", headers={"Authorization": token}).json()['data']
+
+        return redirect(url_for('.complaints'))

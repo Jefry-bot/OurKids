@@ -1,5 +1,6 @@
 {% extends "layouts/layout.html" %} 
 {% from "components/complaint.html" import Complaint with context %}
+{% from "components/link.html" import Link with context %}
 
 {% block head %}
 <link rel="stylesheet" href="{{ url_for('static', filename='css/complaint.css') }}">
@@ -35,10 +36,7 @@
           />
         </div>
         <div class="container_nav">
-          <button class="button" style="font-size: 27px; color: white">Home</button>
-          <button class="button">Information</button>
-          <button class="button" style="margin-right: 0px">About In</button>
-          <button class="button">Sign out</button>
+          <button class="button" style="font-size: 27px; color: white">{{ Link(('.' + "home"|lower), "Home") }}</button>
         </div>
         <div></div>
         <div class="container_nav border relative">

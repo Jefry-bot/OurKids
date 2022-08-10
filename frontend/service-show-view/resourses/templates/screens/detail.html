@@ -1,5 +1,6 @@
 {% extends "layouts/layout.html" %} 
 {% from 'components/detail-component.html' import Detail with context %}
+{% from "components/link.html" import Link with context %}
 
 {% block head %}
 <style>
@@ -98,6 +99,11 @@
         justify-content: center;
         align-items: center;
     }
+
+    .button-complaint {
+        width: 8rem;
+        height: 3rem;
+    }
 </style>
 {% endblock %}
 
@@ -123,13 +129,13 @@
     <div class="container-buttons">
         <div class="container-all-buttons">
             <div>
-                <button class="button-complaint">Return</button>
+                <button class="button-complaint" style="background-color: rgb(73, 224, 73);">{{ Link(('.' + "complaints"|lower), "Return") }}</button>
             </div>
             <div>
-                <button class="button-complaint">Delete</button>
+                <button class="button-complaint" style="background-color: rgb(124, 226, 221);"><a href="http://localhost:3000/delete/{{complaint['id']}}">Delete</a></button>
             </div>
             <div>
-                <button class="button-complaint">Update</button>
+                <button class="button-complaint" style="background-color: rgb(204, 244, 83);"><a href="http://localhost:3000/uṕdate/{{complaint['id']}}">Update</a></button>
             </div>
         </div>
     </div>

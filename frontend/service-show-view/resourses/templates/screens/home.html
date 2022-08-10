@@ -4,11 +4,49 @@
 
 {% block head %}
 <link rel="stylesheet" href="{{ url_for('static', filename='./css/home.css') }}">
+
+<style>
+  #root-screen {
+      grid-template-rows: 9.7% 1fr !important;
+      grid-template-columns: 1fr;
+      background-color: #223187 !important;
+      background-image: url("../../static/images/as.png") !important;
+      background-size: cover !important;
+      background-blend-mode: screen !important;
+  }
+
+  .root-fake {
+      display: grid;
+      grid-template-columns: 40% 60%;
+      grid-template-rows: 1fr;
+    }
+    
+
+  .container-info {
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .container-info-content {
+    width: 35rem;
+    height: 30rem;
+    background-color: white;
+    border-radius: 30px;
+    box-sizing: border-box;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+</style>
 {% endblock %}
 
 {% block body %}
 <div id="root-screen">
-  <nav class="nav">
+  <nav class="nav">  
     <div class="container_img">
       <img
         src="{{ url_for('static', filename='images/logo.png') }}"
@@ -16,10 +54,7 @@
       />
     </div>
     <div class="container_nav">
-      <button class="button" style="font-size: 27px; color: white">Home</button>
-      <button class="button">Information</button>
-      <button class="button" style="margin-right: 0px">About In</button>
-      <button class="button">Sign out</button>
+      <button class="button" style="font-size: 27px; color: white"><a href="http://localhost:3000/home" style="color: white;  ">Home</a></button>
     </div>
     <div></div>
     <div class="container_nav border relative">
@@ -33,9 +68,22 @@
     </div>
     <div></div>
   </nav>
-  <div class="container-home">
-    <h1>Home</h1>
-    {{ Link(('.' + "complaint"|lower), "Complaint") }}
+  <div class="root-fake">
+    <div class="container-home">
+      <h1>Home</h1>
+      {{ Link(('.' + "complaint"|lower), "Complaint") }}
+      {{ Link(('.' + "complaints"|lower), "All Complaints") }}
+    </div>
+
+  <div class="container-info">
+    <div class="container-info-content">
+      <h1 style="color: rgb(50, 50, 50)">Reconozca las señales</h1>
+      <p style="color: rgb(34, 50, 47); font-size: 20px; text-align: center;">estas no siempre son tan obvias, pero hay comportamientos que pueden indicar que un(a) niño(a) están siendo abusados. Algunas de estas señales pueden incluir 
+        Signos de comportamiento: el(a) niño(a) tiende a tener un comportamiento retraído o parece sentirse amenazados(das) por el contacto físico,muestra comportamiento regresivos como chuparse el dedo, cambio en sus rutinas higiénicas como el no considerar bañarse o hacerlo en exceso, el tener pesadillas en un gran factor de señalización. 
+        Defectos físicos: moretones o hinchazón cerca de partes íntimas,inclusive fracturas de huesos. 
+        Indicaciones verbales: estas pueden ser el uso de palabras o frases que son demasiado adultas para su edad, silencios inexplicables o cuando de repente son menos comunicativos. </p>
+    </div>
+  </div>
   </div>
 </div>
 {% endblock %}
