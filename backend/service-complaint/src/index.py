@@ -9,7 +9,7 @@ from constant.controllers import CONTROLLERS
 
 app = Flask(__name__)
 
-cors = CORS(app, resources={r"/api/*": {"origins": {"http://localhost:3000"}}})
+cors = CORS(app, resources={r"/api/*": {"origins": {"http://localhost:3000", "http://localhost:3001"}}})
 
 if __name__ == '__main__':
     config(app, CONTROLLERS)
