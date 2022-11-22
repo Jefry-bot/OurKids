@@ -16,7 +16,7 @@ class Service:
             
             try:
                 data = requests.get("http://localhost:4001/api/verify/token", headers={"Authorization": ("Bearer " + token)}).json()
-                return redirect('http://localhost:3000/home')
+                return redirect(url_for('.home'))
             except:
                 return render_template('forms/login.html', error="ERROR", success=None, form=form)
         else:

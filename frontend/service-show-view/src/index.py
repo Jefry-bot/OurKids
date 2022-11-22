@@ -14,4 +14,4 @@ app = Flask(__name__, template_folder=template_folder_app, static_folder=static_
 if __name__ == '__main__':
     config(app, CONTROLLERS)
     
-    app.run(debug=True, port=3000)
+    app.run(debug=True, port=3001)
